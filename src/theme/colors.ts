@@ -11,10 +11,12 @@ const colors = {
     base: '#2B2C33',
     light: '#7C7A80',
     lightest: '#B3B0B8',
+    linear: 'linear-gradient(90.53deg, #1E1F24 1.27%, #101114 88.58%)',
   },
   support: {
     green: '#39CC59',
     red: '#E03F3F',
+    blue: '#08D6F6',
   },
 };
 

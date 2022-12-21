@@ -11,10 +11,10 @@ import {
   InputLeftElement,
   SimpleGrid,
 } from '@chakra-ui/react';
-import ChampionCard from '@components/championCard/ChampionCard';
+import { ChampionCard } from '@components/championCard/ChampionCard';
 import { Champion, getChampions } from '@services/queries/get-champions';
 
-import Layout from '../components/layout';
+import Layout from '../../components/layout';
 
 export default function Champions() {
   const [allChampions, setAllChampions] = useState<Champion[]>([]);
@@ -38,7 +38,7 @@ export default function Champions() {
     <Layout>
       <Flex
         w="100%"
-        bg="red"
+        bg="neutrals.dark"
         borderRadius={24}
         h="200px"
         backgroundImage="url(./images/banner-search.png)"

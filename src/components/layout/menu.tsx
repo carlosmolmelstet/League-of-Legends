@@ -14,15 +14,17 @@ interface MenuItemProps {
   label: string;
   href: string;
   icon: IconType;
+  disabled?: boolean;
 }
 
-function MenuItem({ label, href, icon }: MenuItemProps) {
+function MenuItem({ label, href, icon, disabled }: MenuItemProps) {
   const router = useRouter();
-  const isActive = router.pathname === href;
+  const isActive =
+    router.pathname === href || router.pathname === href + '/[id]';
 
   return (
     <Flex
-      onClick={() => router.push(href)}
+      onClick={() => !disabled && router.push(href)}
       py={4}
       pl={4}
       borderRadius={4}
@@ -31,8 +33,9 @@ function MenuItem({ label, href, icon }: MenuItemProps) {
         bg: 'neutrals.dark',
       }}
       role="group"
-      cursor="pointer"
+      cursor={disabled ? 'not-allowed' : 'pointer'}
       position="relative"
+      opacity={disabled ? '0.5' : 1}
     >
       <Icon
         color={isActive ? 'primary.base' : 'neutrals.light'}
@@ -77,10 +80,20 @@ export default function Menu() {
     >
       <AppLogo width="40px" ml={4} />
       <Stack mt={10} spacing={2}>
-        <MenuItem label="Home" href="/" icon={RxHome} />
+        <MenuItem label="Home" href="/" icon={RxHome} disabled={true} />
         <MenuItem label="Campeões" href="/champions" icon={RxAccessibility} />
-        <MenuItem label="Items" href="/items" icon={RxIconjarLogo} />
-        <MenuItem label="Feitiços" href="/spells" icon={RxMagicWand} />
+        <MenuItem
+          label="Items"
+          href="/items"
+          icon={RxIconjarLogo}
+          disabled={true}
+        />
+        <MenuItem
+          label="Feitiços"
+          href="/spells"
+          icon={RxMagicWand}
+          disabled={true}
+        />
       </Stack>
     </Flex>
   );
