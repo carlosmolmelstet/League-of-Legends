@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { Box, Flex, Heading, Stack, Text } from '@chakra-ui/react';
+import { Box, Flex, Heading, Stack, Text, Image } from '@chakra-ui/react';
 import { Skin } from '@services/queries/get-champion';
 
 export interface SkinsProps {
@@ -56,14 +56,15 @@ export function Skins({ skins, id }: SkinsProps) {
                 opacity={selectedSkinNum === skin.num ? 1 : '0.5'}
                 onClick={() => setSelectedSkinNum(skin.num)}
                 cursor="pointer"
+                id={`wrapper_${id}_${skin.num}`}
               >
-                <Box
-                  backgroundImage={`url(${process.env.NEXT_PUBLIC_DDRAGON_LEAGUEOFLEGENDS}cdn/img/champion/tiles/${id}_${skin.num}.jpg)`}
-                  backgroundSize="cover"
+                <Image
                   borderRadius={8}
                   w="64px"
                   h="64px"
-                ></Box>
+                  id={`tile_${id}_${skin.num}`}
+                  src={`${process.env.NEXT_PUBLIC_DDRAGON_LEAGUEOFLEGENDS}cdn/img/champion/tiles/${id}_${skin.num}.jpg`}
+                />
                 <Text color="white" fontWeight={700} ml={4}>
                   {skin.num === 0 ? id : skin.name}
                 </Text>

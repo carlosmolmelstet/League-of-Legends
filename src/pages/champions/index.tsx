@@ -11,7 +11,7 @@ import {
   InputLeftElement,
   SimpleGrid,
 } from '@chakra-ui/react';
-import { ChampionCard } from '@components/championCard/ChampionCard';
+import { ChampionCard } from '@components/championCard';
 import { Champion, getChampions } from '@services/queries/get-champions';
 
 import Layout from '../../components/layout';

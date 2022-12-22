@@ -1,9 +1,11 @@
 import '@testing-library/jest-dom';
-import { render } from '@testing-library/react';
+import { act, fireEvent, render } from '@testing-library/react';
+import { useRouter } from 'next/router';
 
 import { ChampionCardProps, ChampionCard } from './ChampionCard';
 
 jest.mock('next/router', () => ({
+  __esModule: true,
   useRouter: jest.fn(),
 }));
 
@@ -44,6 +46,36 @@ describe('<ChampionCard />', () => {
         'src',
         `${process.env.NEXT_PUBLIC_DDRAGON_LEAGUEOFLEGENDS}cdn/img/champion/tiles/${defaultProps.id}_0.jpg`
       );
+    });
+  });
+
+  describe('onClick', () => {
+    it('should called', () => {
+      const mockRouter = {
+        push: jest.fn(),
+      };
+      (useRouter as jest.Mock).mockReturnValue(mockRouter);
+      const { getByText } = setup();
+
+      act(() => {
+        fireEvent.click(getByText(defaultProps.name));
+      });
+
+      expect(mockRouter.push).toHaveBeenCalled();
+    });
+
+    it('should called with corretly route', () => {
+      const mockRouter = {
+        push: jest.fn(),
+      };
+      (useRouter as jest.Mock).mockReturnValue(mockRouter);
+      const { getByText } = setup();
+
+      act(() => {
+        fireEvent.click(getByText(defaultProps.name));
+      });
+
+      expect(mockRouter.push).toBeCalledWith('/champions/' + defaultProps.id);
     });
   });
 });
