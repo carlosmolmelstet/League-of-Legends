@@ -10,10 +10,6 @@ export default class Document extends NextDocument {
         <Head>
           <link rel="preconnect" href="https://fonts.gstatic.com" />
           <link rel="stylesheet" href="/styles/fonts.css" />
-          <link rel="stylesheet" href="/styles/style.css" />
-          <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
-          <link rel="stylesheet" type="text/css" href="/styles/nProgress.css" />
-          <link href="./images/favicon.ico" rel="icon" />
         </Head>
         <body>
           <ColorModeScript

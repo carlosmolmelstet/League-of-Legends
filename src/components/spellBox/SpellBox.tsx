@@ -1,7 +1,7 @@
 import { Flex, Text, Tooltip } from '@chakra-ui/react';
 import { Spell } from '@services/queries/get-champion';
 
-interface SpellBoxProps {
+export interface SpellBoxProps {
   spell: Spell;
 }
 

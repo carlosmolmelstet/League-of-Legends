@@ -18,7 +18,7 @@ const chakraTheme = extendTheme({
     },
   },
   config: {
-    cssVarPrefix: 'credpago',
+    cssVarPrefix: 'molmelstet',
   },
 });
 
