@@ -1,6 +1,6 @@
 const fonts = {
   body: 'Inter, system-ui, sans-serif',
-  heading: 'Uni Neue, sans-serif',
+  heading: 'Inter, sans-serif',
 };
 
 export default fonts;
